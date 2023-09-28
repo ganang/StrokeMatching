@@ -89,9 +89,7 @@ class PaintView: View {
                 } else {
                     strokes.removeLast()
                 }
-
-                Log.d("=> currentCounter", currentCounter.toString())
-                Log.d("=> finishCounter", finishCounter.toString())
+                
                 if (currentCounter == finishCounter) {
                     Toast.makeText(context, "JAWA JAWA JAWA", Toast.LENGTH_SHORT).show()
                 }
