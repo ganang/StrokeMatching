@@ -1,4 +1,4 @@
-# Android with C++ and JNI: StrokeMatching Sample
+# Android with C++ & JNI: StrokeMatching
 
 In 2020 I with the team build Aksaraya. Aksaraya is Indonesian learning traditional script which is build on iOS. One of the feature is "Stroke Matching" which is similar to Duolingo Learning Japanese Character. In this repository contains a sample "Stroke Matching" that implements C++ with JNI.
 
