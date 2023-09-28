@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">StrokeMatching</string>
+    <string name="default_text_info">JAWA</string>
+    <string name="save_button">SAVE BUTTON</string>
 </resources>
