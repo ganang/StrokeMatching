@@ -6,9 +6,9 @@ In 2020 I with the team build Aksaraya. Aksaraya is Indonesian learning traditio
 <img src="Jawa.gif" width="600" height="300" />
 
 # How to make default strokes
--  uncomment related to button in "MainActivity" and "activty_main.xml"
--  comment at "PaintView" line 84 and lines 87-95 and "MainActivity" line 36
--  run project, make your own strokes and then save.
+-  Uncomment related to button in "MainActivity" and "activty_main.xml"
+-  Comment at "PaintView" line 84 and lines 87-95 and "MainActivity" line 36
+-  Run project, make your own strokes and then save.
 Dont forget to comment and uncomment above steps to use the "Stroke Matching" feature.
 <img src="default.gif" width="600" height="300" />
 
