@@ -12,24 +12,24 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-<!--        <TextView-->
-<!--            android:id="@+id/default_text_info"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@string/default_text_info"-->
-<!--            android:layout_centerHorizontal="true"-->
-<!--            android:layout_alignParentBottom="true"-->
-<!--            android:layout_marginBottom="32dp"-->
-<!--            android:textSize="44sp"/>-->
-
-        <Button
-            android:id="@+id/save_button"
+        <TextView
+            android:id="@+id/default_text_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/save_button"
+            android:text="@string/default_text_info"
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="24dp" />
+            android:layout_marginBottom="32dp"
+            android:textSize="44sp"/>
+
+<!--        <Button-->
+<!--            android:id="@+id/save_button"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/save_button"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginBottom="24dp" />-->
     </RelativeLayout>
 
 

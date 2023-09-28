@@ -6,7 +6,9 @@ import android.os.Environment
 import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.strokematching.PaintView.Companion.defaultPoints
 import com.example.strokematching.PaintView.Companion.defaultStrokes
+import com.example.strokematching.PaintView.Companion.finishCounter
 import com.example.strokematching.PaintView.Companion.jsonPoints
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -22,26 +24,27 @@ import java.lang.reflect.Type
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var saveButton: Button
+//    private lateinit var saveButton: Button
+    private val fileName = "sample.json"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        configureComponent()
-        setupListenerComponent()
+//        configureComponent()
+//        setupListenerComponent()
 
         readJSON()
     }
 
-    private fun configureComponent() {
-        saveButton = findViewById(R.id.save_button)
-    }
-
-    private fun setupListenerComponent() {
-        saveButton.setOnClickListener {
-            savePointsToJSON()
-        }
-    }
+//    private fun configureComponent() {
+//        saveButton = findViewById(R.id.save_button)
+//    }
+//
+//    private fun setupListenerComponent() {
+//        saveButton.setOnClickListener {
+//            savePointsToJSON()
+//        }
+//    }
 
     private fun savePointsToJSON() {
         val gsonPretty = GsonBuilder().setPrettyPrinting().create()
@@ -61,8 +64,9 @@ class MainActivity : AppCompatActivity() {
         val floatType: Type = object : TypeToken<ArrayList<ArrayList<FloatPoint>>>() {}.type
         var filename = getFile().absolutePath
         val reader = JsonReader(FileReader(filename))
-        val listOfPoints: ArrayList<ArrayList<FloatPoint>> = Gson().fromJson(reader, floatType)
-        for (points in listOfPoints) {
+        defaultPoints = Gson().fromJson(reader, floatType)
+
+        for (points in defaultPoints) {
             val path = Path()
             for (i in points.indices) {
                 if (i == 0) {
@@ -72,12 +76,12 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
+            finishCounter = defaultPoints.size
             defaultStrokes.add(path)
         }
     }
 
     private fun getFile(): File {
-        val fileName = "sample.json"
         val storageDir = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)
 
         return File(
@@ -87,7 +91,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun createFile(): File {
-        val fileName = "sample.json"
         val storageDir = getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)
         if (storageDir != null) {
             if (!storageDir.exists()){

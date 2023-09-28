@@ -5,16 +5,21 @@ plugins {
 
 android {
     namespace = "com.example.strokematching"
-    compileSdk = 34
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.example.strokematching"
-        minSdk = 34
-        targetSdk = 34
+        minSdk = 33
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags += "-std=c++2a"
+            }
+        }
     }
 
     buildTypes {
@@ -32,6 +37,12 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    externalNativeBuild {
+        cmake {
+            path = file("src/main/cpp/CMakeLists.txt")
+            version = "3.22.1"
+        }
     }
 }
 

@@ -1,14 +1,17 @@
 package com.example.strokematching
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Path
 import android.util.AttributeSet
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 
 class FloatPoint(var x: Float, var y: Float)
 class PaintView: View {
@@ -20,11 +23,13 @@ class PaintView: View {
     private var strokes = ArrayList<ArrayList<Path>>()
     private var currentPoints = ArrayList<FloatPoint>()
     private var currentCounter = 0
+    private var strokeMatchingWrapper = StrokeMatchingWrapper()
 
     companion object {
         var finishCounter = 0
         var jsonPoints = ArrayList<ArrayList<FloatPoint>>()
         var defaultStrokes = ArrayList<Path>()
+        var defaultPoints = ArrayList<ArrayList<FloatPoint>>()
     }
 
     constructor(context: Context) : this(context, null) {
@@ -76,16 +81,22 @@ class PaintView: View {
             }
 
             MotionEvent.ACTION_UP -> {
+                val cloneDefaultPoints = defaultPoints[currentCounter].clone() as ArrayList<FloatPoint>
                 val cloneCurrentPoints = currentPoints.clone() as ArrayList<FloatPoint>
-//                val cloneDefaultPoints =
 
+                if (strokeMatchingWrapper.passCheckDistance(cloneDefaultPoints, cloneCurrentPoints)) {
+                    currentCounter += 1
+                } else {
+                    strokes.removeLast()
+                }
 
+                Log.d("=> currentCounter", currentCounter.toString())
+                Log.d("=> finishCounter", finishCounter.toString())
                 if (currentCounter == finishCounter) {
-
+                    Toast.makeText(context, "JAWA JAWA JAWA", Toast.LENGTH_SHORT).show()
                 }
 
                 jsonPoints.add(cloneCurrentPoints)
-
                 strokes.add(ArrayList())
                 currentPoints.clear()
                 path = Path()
