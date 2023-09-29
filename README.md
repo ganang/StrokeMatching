@@ -1,15 +1,16 @@
 # Android with C++ & JNI: StrokeMatching
 
-In 2020 I with the team build Aksaraya. Aksaraya is Indonesian learning traditional script which is build on iOS. One of the feature is "Stroke Matching" which is similar to Duolingo Learning Japanese Character. In this repository contains a sample "Stroke Matching" that implements C++ with JNI.
+In 2020, I and the team built Aksaraya, an Indonesian traditional script learning app designed for iOS. One of its features is "Stroke Matching," which matches the user's drawn strokes. This repository contains a sample implementation of the 'Stroke Matching' feature for Android, using C++ with JNI."
 
 # Video Demo
 <img src="Jawa.gif" width="600" height="300" />
 
 # How to make default strokes
--  Uncomment related to button in "MainActivity" and "activty_main.xml"
--  Comment at "PaintView" line 84 and lines 87-95 and "MainActivity" line 36
--  Run project, make your own strokes and then save.
-Dont forget to comment and uncomment above steps to use the "Stroke Matching" feature.
+-  Uncomment the code related to the button in both "MainActivity" and "activity_main.xml" files.
+- Comment out the code at "PaintView" line 84, lines 87-95, and "MainActivity" line 36.
+- Run the project.
+- Create your own strokes and save them.
+- Afterward, don't forget to comment and uncomment the above steps to use the "Stroke Matching" feature.
 <img src="default.gif" width="600" height="300" />
 
 # Next Plan:
